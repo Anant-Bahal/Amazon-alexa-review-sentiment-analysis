@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<style>
+  .login{
+    height:100vh;
+    background-color: rgb(211, 240, 231);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .login h1{
+    color: blue;
+
+  }
+  .login textarea{
+    margin-top: 20px;
+    height: 80px;
+
+
+  }
+  .login textarea:hover{
+         
+         box-shadow:
+         0 4px  4px  rgba(0, 0, 0, .1),
+              0 1px  6px  rgba(0, 0, 0, .05),
+              0 8px  8px  rgba(0, 0, 0, .1), 
+              0 16px 16px rgba(0, 0, 0, .1), 
+              8px 32px 32px rgba(0, 0, 0, .15), 
+              8px 64px 64px rgba(0, 0, 0, .15);
+}
+  button{
+    height:30px;
+    width:70px;
+    margin-top: 20px;
+    border-radius: 8rem;
+    animation: pulsebtn 2s infinite;
+    
+  }
+
+@keyframes pulsebtn {
+    0%{
+        box-shadow: 0 0 0 0 rgb(117, 139, 212);
+    }
+    100%{
+        box-shadow: 0 0 0 15px rgb(211, 240, 231);
+    }
+    
+}
+span{
+  height: 30px;
+  color: blue;
+}
+</style>
+<body>
+ <div class="login">
+	<h1>Emotion behind the words</h1>
+
+     
+    <form action="{{ url_for('predict')}}"method="post">
+    	<textarea name="textarea"></textarea> <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <span>{{ prediction_text }}</span>
+
+ </div>
+
+
+</body>
+</html>
